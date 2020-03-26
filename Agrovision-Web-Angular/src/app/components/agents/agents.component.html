@@ -1,0 +1,75 @@
+<mat-card>
+    <mat-card-title>
+        Agents
+      <mat-card-subtitle>
+        Select agent to edit, or create a new one below
+      </mat-card-subtitle>
+        <hr>
+    </mat-card-title>
+    <div>
+        <mat-card-content>
+            <table mat-table [dataSource]="entities" multiTemplateDataRows class="mat-elevation-z8">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let entity">{{entity.name}}</td>
+                </ng-container>
+                <ng-container matColumnDef="RecommendedDosage">
+                    <th mat-header-cell *matHeaderCellDef>Recommended Dosage</th>
+                    <td mat-cell *matCellDef="let entity">{{entity.recommendedDosage}}</td>
+                </ng-container>
+              <ng-container matColumnDef="options">
+                <th mat-header-cell *matHeaderCellDef>
+                </th>
+                <td mat-cell *matCellDef="let entity">
+                  <button mat-stroked-button (click)="delete(entity)"><i class="material-icons">delete</i></button>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let element" [attr.colspan]="displayColumns.length">
+                  <div class="example-element-detail" [@detailExpand]="currentEntity == element ? 'expanded' : 'collapsed'">
+                    <form #frm="ngForm" (ngSubmit)="update(element)">
+                      <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input name="name"  matInput required [(ngModel)]="element.name">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <mat-label>Recommended Dosage</mat-label>
+                        <input name="dosage" matInput type="number" min="0" required [(ngModel)]="element.recommendedDosage">
+                      </mat-form-field>
+                      <br>
+                      <button mat-raised-button type="submit">Save</button>
+                      <br>
+                      <hr>
+                    </form>
+                  </div>
+                </td>
+              </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+              <tr mat-row *matRowDef="let element; columns: displayColumns;"
+                  class="example-element-row"
+                  [class.example-expanded-row]="currentEntity === element"
+                  (click)="currentEntity = element">
+              </tr>
+                <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+            </table>
+        </mat-card-content>
+    </div>
+    <div>
+        <form #frm="ngForm">
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input name="name" matInput required [(ngModel)]="newEntity.name">
+            </mat-form-field>
+          <mat-form-field>
+            <mat-label>Recommended Dosage</mat-label>
+            <input name="dosage" matInput type="number" min="0" required [(ngModel)]="newEntity.recommendedDosage">
+          </mat-form-field>
+            <br>
+            <hr>
+          <button mat-raised-button type="button" (click)="add()">Add</button>
+            <button mat-raised-button type="button" (click)="cancel()">Cancel</button>
+        </form>
+    </div>
+</mat-card>

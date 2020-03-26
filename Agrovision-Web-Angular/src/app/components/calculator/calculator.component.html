@@ -1,0 +1,132 @@
+<mat-card>
+    <mat-card-title>
+        Calculator
+      <mat-card-subtitle>
+        Choose items to use for calculation or input your own values
+      </mat-card-subtitle>
+        <hr>
+    </mat-card-title>
+    <div>
+      <mat-label>Agent</mat-label>
+      <mat-card-subtitle>
+        Select one
+      </mat-card-subtitle>
+      <mat-form-field appearance="fill">
+        <mat-label>Select Agent</mat-label>
+        <mat-select >
+          <mat-option ngDefaultControl *ngFor="let agent of agentSelect" [value]="agent.id" (onSelectionChange)="addAgent(agent)">{{agent.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-label>Sprayer</mat-label>
+      <mat-card-subtitle>
+        Select one
+      </mat-card-subtitle>
+      <mat-form-field appearance="fill">
+        <mat-label>Select Sprayer</mat-label>
+        <mat-select>
+          <mat-option ngDefaultControl *ngFor="let sprayer of sprayerSelect" [value]="sprayer.id" (onSelectionChange)="addSprayer(sprayer)">{{sprayer.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  <div>
+    <mat-label>Fields</mat-label>
+    <mat-card-subtitle>
+      Select as many as needed
+    </mat-card-subtitle>
+    <mat-selection-list #fieldList [(ngModel)]="selectedFields" (ngModelChange)="calcTotalSize()">
+      <mat-list-option *ngFor="let field of fieldSelect" [value]="field">
+        {{field.name}}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+      <br>
+      <hr>
+      <br>
+  <div>
+      <mat-card>
+        <mat-card-title>
+          Calculation Inputs
+        </mat-card-title>
+        <div *ngIf="selectedAgent != undefined">
+          <mat-card-subtitle>
+            Agent
+          </mat-card-subtitle>
+          <mat-list role="list">
+            <mat-list-item role="listitem">{{selectedAgent.name}} - {{selectedAgent.recommendedDosage}}</mat-list-item>
+          </mat-list>
+        </div>
+        <div *ngIf="selectedSprayer != undefined">
+          <mat-card-subtitle>
+            Sprayer
+          </mat-card-subtitle>
+          <mat-list role="list">
+            <mat-list-item role="listitem">{{selectedSprayer.name}} - Min Rate: {{selectedSprayer.rateMin}}</mat-list-item>
+            <mat-list-item role="listitem">{{selectedSprayer.name}} - Max Rate: {{selectedSprayer.rateMax}}</mat-list-item>
+          </mat-list>
+        </div>
+        <div *ngIf="selectedFields != undefined && selectedFields.length > 0 ">
+          <mat-card-subtitle>
+            Field(s)
+          </mat-card-subtitle>
+          <mat-list>
+            <mat-list-item *ngFor="let field of selectedFields">
+              {{field.name}} - Size: {{field.size}}
+            </mat-list-item>
+          </mat-list>
+        </div>
+        <div *ngIf="selectedAgent == undefined && selectedSprayer == undefined && selectedFields.length == 0">
+          No items have been selected. You may input your own values if you choose.
+        </div>
+        <hr>
+        <div>
+          <mat-card-subtitle>
+            Manual input
+          </mat-card-subtitle>
+          <form >
+            <mat-form-field >
+              <mat-label>Total Field Size</mat-label>
+              <input matInput type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="totalFieldSize">
+            </mat-form-field>
+            <mat-form-field >
+              <mat-label>Agent Dosage</mat-label>
+              <input matInput type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="dosage">
+            </mat-form-field>
+            <mat-form-field >
+              <mat-label>Sprayer Rate Minimum</mat-label>
+              <input matInput type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="rateMin">
+            </mat-form-field>
+            <mat-form-field >
+              <mat-label>Sprayer Rate Maximum</mat-label>
+              <input matInput type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="rateMax">
+            </mat-form-field>
+          </form>
+          <button mat-raised-button type="button" (click)="clear()">Clear</button>
+        </div>
+
+      </mat-card>
+    <br>
+    <hr>
+    <br>
+      <mat-card>
+        <mat-card-title>
+          Results
+          <mat-card-subtitle>
+            The results will update in realtime to your input changes
+          </mat-card-subtitle>
+          <hr>
+        </mat-card-title>
+        <div >
+          <mat-list role="list">
+            <mat-list-item role="listitem">Amount of agent needed: {{agentNeeded | number : '1.0-4'}} L</mat-list-item>
+            <mat-list-item role="listitem">Additional water Needed - Min: {{additionalWaterMin | number : '1.0-4'}} L</mat-list-item>
+            <mat-list-item role="listitem">Additional water Needed - Max: {{additionalWaterMax | number : '1.0-4'}} L</mat-list-item>
+          </mat-list>
+        </div>
+      </mat-card>
+  </div>
+
+
+
+</mat-card>

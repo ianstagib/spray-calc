@@ -1,0 +1,35 @@
+.heading, .mat-table, .mat-form-field, .mat-slider {
+    width: 100%;
+}
+
+.mat-column-add {
+    width: 50px;
+    text-align: center;
+}
+
+.mat-column-hectares {
+    width: 150px;
+    text-align: center;
+}
+
+.mat-button-help {
+    float: right;
+}
+
+.mat-slider-thumb-label {
+    transform: rotate(45deg) !important;
+    border-radius: 50% 50% 0 !important;
+}
+
+.mat-slider-thumb {
+    transform: scale(0) !important;
+}
+
+.mat-slider-thumb-label-text {
+    opacity: 1 !important;
+}
+
+.mat-column {
+    width: 250px;
+    padding-left: 15px;
+}
