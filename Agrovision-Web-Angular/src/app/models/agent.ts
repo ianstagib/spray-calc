@@ -1,5 +1,5 @@
-import { Entity } from './entity';
-
-export class Agent extends Entity {
+export class Agent {
+  id: bigint;
+  name: String;
   recommendedDosage: number;
 }

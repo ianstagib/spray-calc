@@ -1,6 +1,6 @@
-import { Entity } from './entity';
-
-export class Sprayer extends Entity {
+export class Sprayer {
+  id: bigint;
+  name: String;
   rateMin: number;
   rateMax: number;
 }

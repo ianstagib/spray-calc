@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
-import { GenericComponent } from '../../shared/generic.component';
-import { MatSnackBar, MatDialog } from '@angular/material';
 import {Field} from '../../models/field';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-fields',
@@ -18,14 +17,47 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   ],
 })
 
-export class FieldsComponent extends GenericComponent<Field> implements OnInit {
+export class FieldsComponent  implements OnInit {
   displayColumns: String[] = ['name', 'size', 'options'];
 
-  constructor(
-    dataService: DataService<Field>,
-    snackBar: MatSnackBar,
-    dialog: MatDialog) {
-    super('Field', dataService, snackBar);
+  fields: Field[];
+  currentField: Field = new Field();
+  newField: Field = new Field();
+
+  constructor(private http: HttpClient) {
+
+  }
+
+  ngOnInit() {
+    this.loadData();
+  }
+
+  add(field: Field) {
+    return this.http.post(environment.api + '/field', field).toPromise().then(() => {
+      this.ngOnInit();
+    });
+  }
+
+  update(field: Field) {
+    return this.http.put(environment.api + '/field', field).toPromise().then(() => {
+      this.ngOnInit();
+    });
+  }
+
+  delete(id: bigint) {
+    return this.http.delete(environment.api + '/field/' + id).toPromise().then(() => {
+      this.ngOnInit();
+    });
+  }
+
+  cancel() {
+    this.loadData();
+  }
+
+  loadData() {
+    return this.http.get<Field[]>(environment.api + '/field').toPromise().then((result) => {
+      this.fields = result;
+    });
   }
 }
 

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
-import { GenericComponent } from '../../shared/generic.component';
-import { MatSnackBar, MatDialog } from '@angular/material';
 import {Sprayer} from '../../models/sprayer';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-sprayers',
@@ -18,12 +17,46 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   ],
 })
 
-export class SprayersComponent extends GenericComponent<Sprayer> implements OnInit {
+export class SprayersComponent implements OnInit {
   displayColumns: String[] = ['name', 'ratemin', 'ratemax', 'options'];
 
-  constructor(
-    dataService: DataService<Sprayer>,
-    snackBar: MatSnackBar) {
-    super('Sprayer', dataService, snackBar);
+  sprayers: Sprayer[];
+  currentSprayer: Sprayer = new Sprayer();
+  newSprayer: Sprayer = new Sprayer();
+
+  constructor(private http: HttpClient) {
+
+  }
+
+  ngOnInit() {
+    this.loadData();
+  }
+
+  add(sprayer: Sprayer) {
+    return this.http.post(environment.api + '/sprayer', sprayer).toPromise().then(() => {
+      this.ngOnInit();
+    });
+  }
+
+  update(sprayer: Sprayer) {
+    return this.http.put(environment.api + '/sprayer', sprayer).toPromise().then(() => {
+      this.ngOnInit();
+    });
+  }
+
+  delete(id: bigint) {
+    return this.http.delete(environment.api + '/sprayer/' + id).toPromise().then(() => {
+      this.ngOnInit();
+    });
+  }
+
+  cancel() {
+    this.loadData();
+  }
+
+  loadData() {
+    return this.http.get<Sprayer[]>(environment.api + '/sprayer').toPromise().then((result) => {
+      this.sprayers = result;
+    });
   }
 }

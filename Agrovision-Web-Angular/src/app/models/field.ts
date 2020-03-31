@@ -1,5 +1,5 @@
-import { Entity } from './entity';
-
-export class Field extends Entity {
+export class Field {
+  id: bigint;
+  name: String;
   size: number;
 }

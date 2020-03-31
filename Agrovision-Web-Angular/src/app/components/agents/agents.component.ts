@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
+import { HttpClient } from '@angular/common/http';
 import { Agent } from '../../models/agent';
-import { GenericComponent } from '../../shared/generic.component';
-import { MatSnackBar } from '@angular/material';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-agents',
@@ -18,12 +17,44 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   ],
 })
 
-export class AgentsComponent extends GenericComponent<Agent> implements OnInit {
+export class AgentsComponent implements OnInit {
   displayColumns: String[] = ['name', 'RecommendedDosage', 'options'];
 
-  constructor(
-    dataService: DataService<Agent>,
-    snackBar: MatSnackBar) {
-      super('Agent', dataService, snackBar);
-    }
+  agents: Agent[];
+  currentAgent: Agent = new Agent();
+  newAgent: Agent = new Agent();
+
+  constructor(private http: HttpClient) {    }
+
+  ngOnInit() {
+    this.loadData();
+  }
+
+  add(agent: Agent) {
+    return this.http.post(environment.api + '/agent', agent).toPromise().then(() => {
+      this.ngOnInit();
+    });
+  }
+
+  update(agent: Agent) {
+    return this.http.put(environment.api + '/agent', agent).toPromise().then(() => {
+      this.ngOnInit();
+    });
+  }
+
+  delete(id: bigint) {
+    return this.http.delete(environment.api + '/agent/' + id).toPromise().then(() => {
+      this.ngOnInit();
+    });
+  }
+
+  cancel() {
+    this.loadData();
+  }
+
+  loadData() {
+    return this.http.get<Agent[]>(environment.api + '/agent').toPromise().then((result) => {
+      this.agents = result;
+    });
+  }
 }
