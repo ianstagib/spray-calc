@@ -5,7 +5,7 @@ Web API project built in .NET Core 3.1, utilising sqlite for its database, NUnit
 
 - Agrovision-Web-Angular
 ------------------------
-Angular project utilising angular material for its CSS styling. Structured with a bit of generic components and inherited models. I purposefully chose to have the calculation logic in the front end because the nature of this logic is not critical or a security risk. I believe in keeping business logic in the back end but for the purposes of this calculator I wanted to have real time changes to the output on input changes.
+Angular project utilising angular material for its CSS styling. I purposefully chose to have the calculation logic in the front end because the nature of this logic is not critical or a security risk. I believe in keeping business logic in the back end but for the purposes of this calculator I wanted to have real time changes to the output on input changes.
 
 
 Running the solution
