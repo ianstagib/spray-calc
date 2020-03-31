@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Agrovision\spray-calc\Agrovision.API" t="IncludeFlat">
+      <e p="Agrovision.API" t="IncludeRecursive">
+        <e p="Agrovision.API.csproj" t="IncludeRecursive" />
+        <e p="agrovision.db" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="AgentController.cs" t="Include" />
+          <e p="ClientModels" t="Include">
+            <e p="AgentCM.cs" t="Include" />
+            <e p="FieldCM.cs" t="Include" />
+            <e p="SprayerCM.cs" t="Include" />
+          </e>
+          <e p="FieldController.cs" t="Include" />
+          <e p="SprayerController.cs" t="Include" />
+        </e>
+        <e p="Migrations" t="Include">
+          <e p="20200326181513_Initial.cs" t="Include" />
+          <e p="20200326181513_Initial.Designer.cs" t="Include" />
+          <e p="SprayCalcDbContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Agrovision.API.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="Agrovision.API.sln" t="IncludeFlat" />
+      <e p="Agrovision.Data" t="IncludeRecursive">
+        <e p="Agrovision.Data.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Configurations" t="Include">
+          <e p="AgentConfiguration.cs" t="Include" />
+          <e p="FieldConfiguration.cs" t="Include" />
+          <e p="SprayerConfiguration.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Agrovision.Data.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="SprayCalcDbContext.cs" t="Include" />
+      </e>
+      <e p="Agrovision.Data.Tests" t="IncludeRecursive">
+        <e p="Agrovision.Data.Tests.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ConfigurationTests" t="Include">
+          <e p="AgentConfigurationTests.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Agrovision.Data.Tests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TestWithSqlite.cs" t="Include" />
+        <e p="ToDoDbContextTests.cs" t="Include" />
+      </e>
+      <e p="Agrovision.Dto" t="IncludeRecursive">
+        <e p="Agent.cs" t="Include" />
+        <e p="Agrovision.Dto.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Field.cs" t="Include" />
+        <e p="IDto.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Agrovision.Dto.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Sprayer.cs" t="Include" />
+      </e>
+      <e p="Agrovision.Helpers" t="IncludeRecursive">
+        <e p="Agrovision.Helpers.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Agrovision.Helpers.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TypeMapper.cs" t="Include" />
+      </e>
+      <e p="Agrovision.Service" t="IncludeRecursive">
+        <e p="AgentService.cs" t="Include" />
+        <e p="Agrovision.Service.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="FieldService.cs" t="Include" />
+        <e p="Interfaces" t="Include">
+          <e p="IAgentService.cs" t="Include" />
+          <e p="IFieldService.cs" t="Include" />
+          <e p="ISprayerService.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Agrovision.Service.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="SprayerService.cs" t="Include" />
+      </e>
+      <e p="Agrovision.Service.Tests" t="IncludeRecursive">
+        <e p="Agrovision.Service.Tests.csproj" t="IncludeRecursive" />
+        <e p="AgrovisionAgentServiceTests.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Agrovision.Service.Tests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TestWithSqlite.cs" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="tests" t="Include" />
+    </e>
+    <e p="C:\Users\ianst\.nuget\packages\microsoft.net.test.sdk\16.4.0\build\netcoreapp2.1" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\ianst\.nuget\packages\microsoft.testplatform.testhost\16.4.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
+    <e p="C:\Users\ianst\.nuget\packages\microsoft.testplatform.testhost\16.4.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
+    <e p="C:\Users\ianst\.nuget\packages\nunit3testadapter\3.15.1\build\netcoreapp2.0\nunit.engine.api.dll" t="Include" />
+    <e p="C:\Users\ianst\.nuget\packages\nunit3testadapter\3.15.1\build\netcoreapp2.0\nunit.engine.dll" t="Include" />
+    <e p="C:\Users\ianst\.nuget\packages\nunit3testadapter\3.15.1\build\netcoreapp2.0\NUnit3.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\ianst\.nuget\packages\nunit3testadapter\3.15.1\build\netcoreapp2.0\NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="C:\Users\ianst\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\ianst\.Rider2019.3\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\ianst\.Rider2019.3\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\ianst\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\ianst\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Agrovision.API.153518971.00" t="ExcludeRecursive" />
+  </component>
+</project>
