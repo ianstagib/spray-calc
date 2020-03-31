@@ -1,0 +1,17 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
+  <h1 class="example-app-name">Agrovision Spray Calculator</h1>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize >
+  <mat-sidenav #drawer mode="side" opened role="navigation">
+    <mat-nav-list>
+      <a mat-list-item routerLink='/calculator'>Calculator</a>
+      <a mat-list-item routerLink='/agents'>Agents</a>
+      <a mat-list-item routerLink='/fields'>Fields</a>
+      <a mat-list-item routerLink='/sprayers'>Sprayers</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

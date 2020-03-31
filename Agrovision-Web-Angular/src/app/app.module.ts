@@ -5,7 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { AgentsComponent } from './components/agents/agents.component';
 import { FieldsComponent } from './components/fields/fields.component';
@@ -17,22 +16,23 @@ import {
   MatCardModule,
   MatCheckboxModule,
   MatDialogModule,
-  MatFormFieldModule, MatGridListModule,
+  MatFormFieldModule, MatGridListModule, MatIconModule,
   MatInputModule, MatListModule,
   MatPaginatorModule,
   MatProgressSpinnerModule,
-  MatSelectModule,
+  MatSelectModule, MatSidenavModule,
   MatSliderModule,
   MatSnackBarModule,
   MatSpinner,
-  MatTableModule,
+  MatTableModule, MatToolbarModule,
 } from '@angular/material';
 import { OverlayModule } from '@angular/cdk/overlay';
+import {NavigationComponent} from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
+    NavigationComponent,
     CalculatorComponent,
     AgentsComponent,
     FieldsComponent,
@@ -64,7 +64,10 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatSliderModule,
     MatTableModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [ ],
   entryComponents: [
