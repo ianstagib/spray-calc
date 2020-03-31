@@ -10,5 +10,5 @@ Angular project utilising angular material for its CSS styling. I purposefully c
 
 Running the solution
 --------------------
-Debug / Run the API project. It should serve on localhost:5000.
+Restore nuget packages. Debug / Run the API project. It should serve on localhost:5000.
 Run NPM Install to install dependencies. NG serve the angular project. It should serve on localhost:4200.
