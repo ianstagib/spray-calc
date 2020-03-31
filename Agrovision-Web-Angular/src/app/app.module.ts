@@ -17,7 +17,7 @@ import {
   MatCardModule,
   MatCheckboxModule,
   MatDialogModule,
-  MatFormFieldModule,
+  MatFormFieldModule, MatGridListModule,
   MatInputModule, MatListModule,
   MatPaginatorModule,
   MatProgressSpinnerModule,
@@ -25,7 +25,7 @@ import {
   MatSliderModule,
   MatSnackBarModule,
   MatSpinner,
-  MatTableModule
+  MatTableModule,
 } from '@angular/material';
 import { OverlayModule } from '@angular/cdk/overlay';
 
@@ -63,7 +63,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatSnackBarModule,
     MatSliderModule,
     MatTableModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule
   ],
   providers: [ ],
   entryComponents: [

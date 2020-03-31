@@ -28,6 +28,7 @@ export class AgentsComponent implements OnInit {
 
   ngOnInit() {
     this.loadData();
+    this.newAgent = new Agent();
   }
 
   add(agent: Agent) {
@@ -49,7 +50,7 @@ export class AgentsComponent implements OnInit {
   }
 
   cancel() {
-    this.loadData();
+    this.ngOnInit();
   }
 
   loadData() {

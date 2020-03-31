@@ -30,6 +30,7 @@ export class FieldsComponent  implements OnInit {
 
   ngOnInit() {
     this.loadData();
+    this.newField = new Field();
   }
 
   add(field: Field) {
@@ -51,7 +52,7 @@ export class FieldsComponent  implements OnInit {
   }
 
   cancel() {
-    this.loadData();
+    this.ngOnInit();
   }
 
   loadData() {

@@ -29,7 +29,8 @@ export class SprayersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadData();
+    this.loadData()
+    this.newSprayer = new Sprayer();
   }
 
   add(sprayer: Sprayer) {
@@ -51,7 +52,7 @@ export class SprayersComponent implements OnInit {
   }
 
   cancel() {
-    this.loadData();
+    this.ngOnInit();
   }
 
   loadData() {

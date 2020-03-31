@@ -56,16 +56,24 @@
             </table>
         </mat-card-content>
     </div>
+  <br>
     <div>
         <form #frm="ngForm">
-            <mat-form-field>
-                <mat-label>Name</mat-label>
-                <input name="name" matInput required [(ngModel)]="newAgent.name">
-            </mat-form-field>
-          <mat-form-field>
-            <mat-label>Recommended Dosage</mat-label>
-            <input name="dosage" matInput type="number" min="0" required [(ngModel)]="newAgent.recommendedDosage">
-          </mat-form-field>
+          <mat-grid-list cols="2" rowHeight="70px" gutterSize="5px">
+            <mat-grid-tile>
+              <mat-form-field>
+              <mat-label>Agent Name</mat-label>
+              <input name="dosage" matInput required [(ngModel)]="newAgent.name">
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>Recommended Dosage</mat-label>
+                <input name="dosage" matInput type="number" min="0" required [(ngModel)]="newAgent.recommendedDosage">
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+
             <br>
             <hr>
           <button mat-raised-button type="button" (click)="add(newAgent)">Add</button>
